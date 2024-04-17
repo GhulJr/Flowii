@@ -21,7 +21,7 @@ kotlin {
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "Flowii"
+            baseName = "ComposeApp"
             isStatic = true
         }
     }
@@ -39,6 +39,7 @@ kotlin {
             implementation(compose.material3)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
+            implementation(libs.touchlab.kermit)
         }
     }
 }
