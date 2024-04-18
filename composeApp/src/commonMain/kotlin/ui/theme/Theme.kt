@@ -12,14 +12,9 @@ fun FlowiiTheme(
 ) {
     val colorScheme = if (useDarkTheme) DarkColors else LightColors
 
-    setupSystemParams(colorScheme)
-
     MaterialTheme(
         colorScheme = colorScheme,
         content = content,
         typography = typography(FontFamily())
     )
 }
-
-@Composable
-expect fun setupSystemParams(colorScheme: ColorScheme)
