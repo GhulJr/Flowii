@@ -1,7 +1,6 @@
 package ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 
@@ -10,10 +9,8 @@ fun FlowiiTheme(
     useDarkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
-    val colorScheme = if (useDarkTheme) DarkColors else LightColors
-
     MaterialTheme(
-        colorScheme = colorScheme,
+        colorScheme = if (useDarkTheme) DarkColors else LightColors,
         content = content,
         typography = typography(FontFamily())
     )
