@@ -5,6 +5,8 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.allOpen)
 }
 
 kotlin {
@@ -67,6 +69,7 @@ kotlin {
             implementation(libs.kotlin.test)
             implementation(libs.multiplatformSettings.test)
             implementation(libs.assertk)
+            implementation(libs.mockative)
         }
     }
 }
@@ -107,3 +110,10 @@ android {
     }
 }
 
+dependencies {
+    configurations
+        .filter { it.name.startsWith("ksp") && it.name.contains("Test") }
+        .forEach {
+            add(it.name, libs.mockative.processor)
+        }
+}

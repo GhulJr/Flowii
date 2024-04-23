@@ -3,11 +3,11 @@ agp = "8.3.2"
 android-compileSdk = "34"
 android-minSdk = "24"
 android-targetSdk = "34"
-androidx-activityCompose = "1.8.2"
+androidx-activityCompose = "1.9.0"
 compose = "1.6.5"
-compose-plugin = "1.6.0"
-kotlin = "1.9.22"
-androidx-compose-test = "1.5.4"
+compose-plugin = "1.6.2"
+kotlin = "1.9.23"
+androidx-compose-test = "1.6.5"
 arrow = "1.2.4"
 koin = "3.5.6"
 koin-compose = "1.1.5"
@@ -15,6 +15,8 @@ store = "5.1.0-alpha02"
 multiplatform-settings = "1.1.1"
 kermit = "2.0.3"
 assertk = "0.28.1"
+ksp = "1.9.23-1.0.20"
+mockative = "2.2.0"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -33,9 +35,13 @@ multiplatformSettings-coroutines = { module = "com.russhwolf:multiplatform-setti
 multiplatformSettings-test = { module = "com.russhwolf:multiplatform-settings-test", version.ref = "multiplatform-settings" }
 kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
 assertk = { module = "com.willowtreeapps.assertk:assertk", version.ref = "assertk" }
+mockative = { module = "io.mockative:mockative", version.ref = "mockative" }
+mockative-processor = { module = "io.mockative:mockative-processor", version.ref = "mockative" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+allOpen = { id = "org.jetbrains.kotlin.plugin.allopen", version.ref = "kotlin" }
