@@ -55,6 +55,8 @@ kotlin {
             implementation(libs.koin.core)
             implementation(libs.koin.compose)
             implementation(libs.store)
+            implementation(libs.multiplatformSettings.noArgs)
+            implementation(libs.multiplatformSettings.coroutines)
         }
 
         commonTest.dependencies {
@@ -62,6 +64,7 @@ kotlin {
             @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
             implementation(compose.uiTest)
             implementation(libs.kotlin.test)
+            implementation(libs.multiplatformSettings.test)
         }
     }
 }
