@@ -57,6 +57,7 @@ kotlin {
             implementation(libs.store)
             implementation(libs.multiplatformSettings.noArgs)
             implementation(libs.multiplatformSettings.coroutines)
+            implementation(libs.kermit)
         }
 
         commonTest.dependencies {
