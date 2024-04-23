@@ -66,6 +66,7 @@ kotlin {
             implementation(compose.uiTest)
             implementation(libs.kotlin.test)
             implementation(libs.multiplatformSettings.test)
+            implementation(libs.assertk)
         }
     }
 }

@@ -14,6 +14,7 @@ koin-compose = "1.1.5"
 store = "5.1.0-alpha02"
 multiplatform-settings = "1.1.1"
 kermit = "2.0.3"
+assertk = "0.28.1"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -30,7 +31,8 @@ store = { module = "org.mobilenativefoundation.store:store5", version.ref = "sto
 multiplatformSettings-noArgs = { module = "com.russhwolf:multiplatform-settings-no-arg", version.ref = "multiplatform-settings" }
 multiplatformSettings-coroutines = { module = "com.russhwolf:multiplatform-settings-coroutines", version.ref = "multiplatform-settings" }
 multiplatformSettings-test = { module = "com.russhwolf:multiplatform-settings-test", version.ref = "multiplatform-settings" }
-kermit = { module = "co.touchlab:kermit", version.ref = "kermit"}
+kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
+assertk = { module = "com.willowtreeapps.assertk:assertk", version.ref = "assertk" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
