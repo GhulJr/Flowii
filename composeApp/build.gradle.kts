@@ -54,6 +54,7 @@ kotlin {
             // More about koin Compose Multiplatform - https://medium.com/@j.c.moreirapinto/simplifying-cross-platform-app-development-dependency-injection-with-koin-in-compose-multiplatform-f77595396fbc
             implementation(libs.koin.core)
             implementation(libs.koin.compose)
+            implementation(libs.store)
         }
 
         commonTest.dependencies {

@@ -11,18 +11,20 @@ androidx-compose-test = "1.5.4"
 arrow = "1.2.4"
 koin = "3.5.6"
 koin-compose = "1.1.5"
+store = "5.1.0-alpha02"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
-androidx-compose-junit4 = { module = "androidx.compose.ui:ui-test-junit4-android", version.ref = "androidx-compose-test"}
-androidx-compose-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "androidx-compose-test"}
+androidx-compose-junit4 = { module = "androidx.compose.ui:ui-test-junit4-android", version.ref = "androidx-compose-test" }
+androidx-compose-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "androidx-compose-test" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
 arrow-core = { module = "io.arrow-kt:arrow-core", version.ref = "arrow" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
-koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koin-compose"}
+koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koin-compose" }
+store = { module = "org.mobilenativefoundation.store:store5", version.ref = "store" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
