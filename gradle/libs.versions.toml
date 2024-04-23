@@ -9,6 +9,8 @@ compose-plugin = "1.6.0"
 kotlin = "1.9.22"
 androidx-compose-test = "1.5.4"
 arrow = "1.2.4"
+koin = "3.5.6"
+koin-compose = "1.1.5"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -18,7 +20,9 @@ androidx-activity-compose = { module = "androidx.activity:activity-compose", ver
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
 arrow-core = { module = "io.arrow-kt:arrow-core", version.ref = "arrow" }
-
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
+koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koin-compose"}
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
