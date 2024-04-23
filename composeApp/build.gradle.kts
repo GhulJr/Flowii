@@ -1,9 +1,12 @@
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSetTree
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.allOpen)
 }
 
 kotlin {
@@ -13,8 +16,18 @@ kotlin {
                 jvmTarget = JavaVersion.VERSION_17.toString()
             }
         }
+
+        @OptIn(ExperimentalKotlinGradlePluginApi::class)
+        instrumentedTestVariant {
+            sourceSetTree.set(KotlinSourceSetTree.test)
+
+            dependencies {
+                implementation(libs.androidx.compose.junit4)
+                debugImplementation(libs.androidx.compose.manifest)
+            }
+        }
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -25,7 +38,7 @@ kotlin {
             isStatic = true
         }
     }
-    
+
     sourceSets {
         androidMain.dependencies {
             implementation(libs.compose.ui.tooling.preview)
@@ -39,6 +52,24 @@ kotlin {
             implementation(compose.material3)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
+            implementation(libs.arrow.core)
+            // More about koin Compose Multiplatform - https://medium.com/@j.c.moreirapinto/simplifying-cross-platform-app-development-dependency-injection-with-koin-in-compose-multiplatform-f77595396fbc
+            implementation(libs.koin.core)
+            implementation(libs.koin.compose)
+            implementation(libs.store)
+            implementation(libs.multiplatformSettings.noArgs)
+            implementation(libs.multiplatformSettings.coroutines)
+            implementation(libs.kermit)
+        }
+
+        commonTest.dependencies {
+            // more about testing Compose Multiplatform - https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-test.html
+            @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
+            implementation(compose.uiTest)
+            implementation(libs.kotlin.test)
+            implementation(libs.multiplatformSettings.test)
+            implementation(libs.assertk)
+            implementation(libs.mockative)
         }
     }
 }
@@ -57,6 +88,7 @@ android {
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
         versionName = "1.0"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     packaging {
         resources {
@@ -65,7 +97,7 @@ android {
     }
     buildTypes {
         getByName("release") {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
         }
     }
     compileOptions {
@@ -74,6 +106,14 @@ android {
     }
     dependencies {
         debugImplementation(libs.compose.ui.tooling)
+        implementation(libs.koin.android)
     }
 }
 
+dependencies {
+    configurations
+        .filter { it.name.startsWith("ksp") && it.name.contains("Test") }
+        .forEach {
+            add(it.name, libs.mockative.processor)
+        }
+}
