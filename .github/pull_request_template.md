@@ -29,6 +29,11 @@ Add a description that will help reviewer check if given change works as expecte
 * **Step 2**: Describe step 2
 * **Expected:** Describe what is expected to happen
 
+## Documentation
+<!--- 
+Add links to related tickets
+-->
+
 ## Checklist
 <!--- 
 All those checkboxes should be marked before submitting the PR
