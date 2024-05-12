@@ -1,4 +1,4 @@
-package com.ghuljr.flowii
+package io.ghuljr.flowii
 
 import App
 import android.app.Activity
