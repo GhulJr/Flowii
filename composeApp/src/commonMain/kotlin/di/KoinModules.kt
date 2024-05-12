@@ -10,7 +10,7 @@ val platformModule = module {
 }
 
 val commonModule = module {
-    single { Greeting() }
+    singleOf(::Greeting)
 }
 
-fun appModule() = listOf(platformModule, commonModule)
+fun appModules() = listOf(platformModule, commonModule)

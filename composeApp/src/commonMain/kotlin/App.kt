@@ -11,7 +11,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import di.appModule
+import di.appModules
 import flowii.composeapp.generated.resources.Res
 import flowii.composeapp.generated.resources.compose_multiplatform
 import org.jetbrains.compose.resources.ExperimentalResourceApi
@@ -28,7 +28,7 @@ import ui.theme.FlowiiTheme
 @Preview
 fun App() {
     KoinApplication(application = {
-        modules(appModule())
+        modules(appModules())
     }) {
         val greetingWrapper = koinInject<Greeting>()
 
