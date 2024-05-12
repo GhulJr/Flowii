@@ -18,6 +18,7 @@ import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.koin.compose.KoinApplication
+import org.koin.compose.koinInject
 import ui.screen.Greeting
 
 import ui.theme.FlowiiTheme
@@ -29,6 +30,8 @@ fun App() {
     KoinApplication(application = {
         modules(appModule())
     }) {
+        val greetingWrapper = koinInject<Greeting>()
+
         FlowiiTheme {
             Surface(
                 modifier = Modifier
@@ -44,7 +47,7 @@ fun App() {
                         Text("Click me!")
                     }
                     AnimatedVisibility(showContent) {
-                        val greeting = remember { Greeting().greet() }
+                        val greeting = remember { greetingWrapper.greet() }
                         Column(
                             Modifier.fillMaxWidth(),
                             horizontalAlignment = Alignment.CenterHorizontally
