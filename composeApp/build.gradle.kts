@@ -70,6 +70,7 @@ kotlin {
             implementation(libs.multiplatformSettings.test)
             implementation(libs.assertk)
             implementation(libs.mockative)
+            implementation(libs.koin.test)
         }
     }
 }
