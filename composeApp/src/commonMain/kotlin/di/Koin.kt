@@ -14,9 +14,3 @@ val commonModule = module {
 }
 
 fun appModule() = listOf(platformModule, commonModule)
-
-fun initKoin() {
-    startKoin {
-        modules(appModule())
-    }
-}
